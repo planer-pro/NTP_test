@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "author": "Planerful",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-arduino-nano", "id": "nano", "top": 0, "left": 0, "attrs": { } },
+    { "type": "wokwi-led", "id": "led1", "top": -90, "left": 3.8, "attrs": { "color": "red" } },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -34.45,
+      "left": -48,
+      "attrs": { "value": "250" }
+    },
+    { "type": "wokwi-gnd", "id": "gnd1", "top": -9.6, "left": -58.2, "attrs": { } },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": 104.3, "left": 9.4, "attrs": { } },
+    { "type": "wokwi-gnd", "id": "gnd2", "top": 201.6, "left": 9, "attrs": { } },
+    { "type": "wokwi-vcc", "id": "vcc1", "top": 144.76, "left": 105.6, "attrs": { } },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": -150.46,
+      "left": 67.43,
+      "attrs": { "i2cAddress": "0x3c" }
+    },
+    { "type": "wokwi-gnd", "id": "gnd3", "top": -105.6, "left": -19.8, "attrs": { } },
+    { "type": "wokwi-vcc", "id": "vcc2", "top": -229.64, "left": 105.6, "attrs": { } }
+  ],
+  "connections": [
+    [ "led1:C", "r1:2", "green", [ "v0" ] ],
+    [ "r1:1", "gnd1:GND", "green", [ "v0", "h-9.6" ] ],
+    [ "nano:9", "led1:A", "green", [ "v-33.6", "h-19.7" ] ],
+    [ "gnd2:GND", "pot1:GND", "black", [ "v-9.6", "h19.2" ] ],
+    [ "vcc1:VCC", "pot1:VCC", "red", [ "v19.2", "h-57.6" ] ],
+    [ "nano:A7", "pot1:SIG", "green", [ "v52.8", "h28.3", "v96", "h-96" ] ],
+    [ "oled1:GND", "gnd3:GND", "black", [ "v-28.8", "h-76.8" ] ],
+    [ "oled1:VCC", "vcc2:VCC", "red", [ "v0" ] ],
+    [ "oled1:SDA", "nano:A4", "green", [ "v-28.8", "h67.27", "v259.2", "h-115.2" ] ],
+    [ "oled1:SCL", "nano:A5", "green", [ "v-19.2", "h67.5", "v259.2", "h-96" ] ]
+  ],
+  "dependencies": { }
+}
